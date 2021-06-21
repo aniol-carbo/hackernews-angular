@@ -1,0 +1,31 @@
+<body>
+  <div class="container">
+    <form #tweetForm="ngForm" (ngSubmit)=submitTweet(tweetForm) class="form-style-7">
+      <h1>Submit a new Tweet!</h1>
+      <ul>
+      <li>
+          <label for="name">Title</label>
+          <input type="text" name="title" maxlength="100" ngModel>
+          <span>Enter your submission's title here</span>
+      </li>
+      <li>
+          <label for="text">Url</label>
+          <input type="url" name="url" maxlength="100" ngModel>
+          <span>Enter a valid url address</span>
+      </li>
+      <li>
+          <label for="contentText">Content</label>
+          <textarea id="contentText" name="contentText" (keyup)="autogrow()" ngModel></textarea>
+          <span>Enter your submission's content</span>
+      </li>
+      <li>
+          <span *ngIf="failed" style="color: red;">Some of the fields are missing</span>
+      </li>
+      <li>
+          <button type="submit">Submit</button>
+      </li>
+      </ul>
+      </form>
+  </div>  
+</body>
+

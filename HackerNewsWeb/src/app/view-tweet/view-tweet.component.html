@@ -1,0 +1,27 @@
+<div style="height: 100%; width: 100%; background-color: #f6f6e2;">
+    <div id="tweet-content">
+        <div fxLayout="row">
+            <h1 style="font-weight: 750;">{{tweet.title}} <a href="https://{{tweet.url}}" target="_blank" id="url" *ngIf="tweet.url != ''">({{tweet.url}})</a></h1>
+            <button class="action-button" mat-button *ngIf="!isVoted()" (click)="vote(tweet.id,'true')"><mat-icon>arrow_drop_up</mat-icon></button>
+            <button class="action-button" mat-button *ngIf="isVoted()" (click)="vote(tweet.id,'false')"><mat-icon>arrow_drop_down</mat-icon></button>    
+        </div>
+        <p id="content" *ngIf="tweet.ask=='true'">{{tweet.content}}</p>
+        <p>Votes: {{tweet.points}}</p>
+        <mat-divider></mat-divider>
+        <h4>Comments:</h4>
+        <h2 *ngIf="comments.length == 0 && !loading">This contribution has no comments yet, be the first to comment!</h2>
+        <form #commentForm="ngForm" (ngSubmit)=onSubmit(commentForm) class="comment-form">
+            <mat-form-field class="comment-form-field">
+              <mat-label>Your comment</mat-label>
+              <input matInput placeholder="This is my comment!" name="text" type="text" id="comment-text" ngModel>
+            </mat-form-field>
+            <button mat-button type="submit"><mat-icon>send</mat-icon></button>
+        </form>
+        
+
+        <mat-spinner class="uploader-status" *ngIf="loading" style="margin: auto; padding-bottom: 150px;"></mat-spinner>
+        <app-comment *ngFor="let c of comments" [comment]="c"></app-comment>
+
+         </div>
+</div>
+

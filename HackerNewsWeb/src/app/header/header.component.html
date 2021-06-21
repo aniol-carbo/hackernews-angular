@@ -1,0 +1,20 @@
+<header>
+        <mat-toolbar color="primary">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="['/home']">
+              <img style="width: 40px; height: auto;" src="/assets/icons/hacker-news.png">
+            </button>
+            <a style="text-decoration: none; color: white" [routerLink]="['/home']"><span>Hacker News</span></a>
+            <div style="width: 100%;">
+                <mat-grid-list cols="8" rowHeight="1:1" style="color: white;">
+                    <mat-grid-tile><button mat-button [routerLink]="['/home','new']" > new </button></mat-grid-tile>
+                    <mat-grid-tile><button mat-button [routerLink]="['/home','past']"> past </button></mat-grid-tile>
+                    <mat-grid-tile><button mat-button [routerLink]="['/comments']"> comments </button></mat-grid-tile>
+                    <mat-grid-tile><button mat-button [routerLink]="['/home','ask']"> ask </button></mat-grid-tile>
+                    <mat-grid-tile><button mat-button [routerLink]="['/home','show']"> show </button></mat-grid-tile>
+                    <mat-grid-tile><button mat-button> jobs </button></mat-grid-tile>
+                    <mat-grid-tile><button mat-button routerLink="/tweet" routerLinkActive="active"> submit </button></mat-grid-tile>
+                    <mat-grid-tile><button mat-button [routerLink]="['/settings']"><mat-icon>settings</mat-icon> </button></mat-grid-tile>
+                  </mat-grid-list>
+            </div>
+          </mat-toolbar>
+</header>

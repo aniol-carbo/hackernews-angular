@@ -1,0 +1,30 @@
+<div class="replies">
+	<div class="main">
+		<div class="right">
+			<div class="detail">
+				<span class="user"><a [routerLink]="['/users',comment.user ]">{{comment.author}}</a> </span>
+				<span class="date"> {{comment.created_at}}</span>
+				<button mat-button *ngIf="!isVoted(comment) && !myComment(comment)" (click)="vote(comment.id,'true')"><mat-icon>arrow_drop_up</mat-icon></button>
+                <button mat-button *ngIf="isVoted(comment) && !myComment(comment)" (click)="vote(comment.id,'false')"><mat-icon>arrow_drop_down</mat-icon></button>
+			</div>
+			<div class="comment">
+				<p>{{comment.text}}</p>
+			</div>
+			<span><button class="btn button-form btn-orange btn-sm" _ngcontent-kvj-c79 _ngcontent-dry-c78 (click)="activateReply()">reply</button> | votes: {{comment.points}}</span>
+			<form *ngIf="activatedReply" #commentForm="ngForm" (ngSubmit)=onSubmit(commentForm) class="comment-form">
+				<mat-form-field class="comment-form-field">
+					<mat-label>Your comment</mat-label>
+					<input matInput placeholder="This is my comment!" name="text" type="text" id="comment-text" ngModel>
+				</mat-form-field>
+				<button mat-button type="submit"><mat-icon>send</mat-icon></button>
+			</form>
+		</div>
+	</div>
+	<br/>
+    <div style="margin-left: 30px;">
+        <app-comment *ngFor="let c of comment.sonComments" [comment]="c"></app-comment>
+    </div>
+
+	<mat-divider></mat-divider>
+    <br>
+</div>

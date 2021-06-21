@@ -1,0 +1,22 @@
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: #FF6600;
+}
+
+.mat-toolbar.mat-primary {
+    background: #FF6600;
+    color: #fff;
+  }
+
+  mat-button {
+      transition: all 0.3s;
+  }
+
+  mat-button:hover {
+    transform: translateY(10px);
+  }
+
+  mat-grid-list {
+      color: black;
+  }

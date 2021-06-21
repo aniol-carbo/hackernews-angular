@@ -1,0 +1,36 @@
+#tweet-content {
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+#url {
+    color: gray;
+    font-size: 13px;
+}
+
+#content {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.comment {
+    margin-bottom: 10px;
+}
+
+.created {
+    color: gray;
+    font-size: 13px;
+}
+
+.action-buttons {
+    width: 10px;
+}
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+}
+
+.action-buttons {
+    border: black solid 0.3px !important;
+}

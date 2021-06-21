@@ -1,0 +1,31 @@
+<script src="home-comments.component.ts"></script>
+<div style="height: 100%; width: 100%; background-color: #f6f6e2;">
+    <table class="container">
+        <thead>
+            <tr>
+                <th><h1>ID</h1></th>
+                <th><h1>Text</h1></th>
+                <th><h1>Votes</h1></th>
+                <th><h1>Author</h1></th>
+                <th><h1>Date</h1></th>
+                <th><h1>Actions</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let comment of comments; let i = index">
+                <td>{{i+1}}.</td>
+                <td [routerLink]="['/tweet',comment.contribution ]">{{comment.text}}</td>
+                <td>{{comment.points -1}}</td>
+                <td [routerLink]="['/users',comment.user ]">{{comment.author}}</td>
+                <td>{{comment.created_at}}</td>
+                <td fxLayout="row">
+                    <button mat-button *ngIf="!isVoted(comment) && !myComment(comment)" (click)="vote(comment.id,'true')"><mat-icon>arrow_drop_up</mat-icon></button>
+                    <button mat-button *ngIf="isVoted(comment) && !myComment(comment)" (click)="vote(comment.id,'false')"><mat-icon>arrow_drop_down</mat-icon></button>
+                    <button mat-button [routerLink]="['/tweet',comment.contribution]"><mat-icon>comment</mat-icon></button>
+                 </td>
+             </tr>
+        </tbody>
+    </table>
+    <mat-spinner class="uploader-status" *ngIf="loading" style="margin: auto; padding-bottom: 150px;"></mat-spinner>
+</div>
+
